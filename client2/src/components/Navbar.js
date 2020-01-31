@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import $ from 'jquery';
 import Modal from "./Modal";
+import {Link} from "react-router-dom";
 
 
 function Navbar() {
@@ -29,9 +30,10 @@ function Navbar() {
 
                 <div id="navbarBasicExample" className="navbar-menu" ref={navbarMenuRef}>
                     <div className="navbar-start has-text-weight-normal">
-                        <a className="navbar-item">
-                            Home
-                        </a>
+
+                        <Link to="/" className="navbar-item">Home</Link>
+                        <Link to="/courses" className="navbar-item">Courses</Link>
+                        <Link to="/admin" className="navbar-item">Admin</Link>
 
                         <a className="navbar-item">
                             Documentation
