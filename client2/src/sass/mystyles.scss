@@ -60,8 +60,12 @@ $fullhd: 1344px - 300px  + (2 * $gap) !default
   padding-top: 0.5rem;
   padding-right: 0.5rem;
   border-style: solid;
-  border-radius: 0.5rem;
+
+  border-color: #dbdbdb;
+  border-radius: 4px;
   border-width: 1px;
+
+  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
 }
 
 .codex-editor__redactor {

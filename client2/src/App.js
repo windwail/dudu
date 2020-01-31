@@ -4,9 +4,7 @@ import EditorJs from 'react-editor-js';
 import Editor from "./Editor";
 
 
-
 function App() {
-
 
 
     let burgerRef = React.createRef();
@@ -82,20 +80,52 @@ function App() {
                 <div className="section">
                     <h3 className="ce-header">Контент вопроса</h3>
                     <Editor holder="my-editor-1"/>
-                    Здесь кнопки
                 </div>
+
                 <div className="section">
                     <h3 className="ce-header">Контент вопроса</h3>
                     <Editor holder="my-editor-2"/>
-                    Здесь кнопки
+
+                    <h3 className="ce-header">Контент вопроса</h3>
+                    <div className="control">
+                        <textarea className="textarea" placeholder="Textarea"></textarea>
+                    </div>
+
+                    <div className="control">
+                        <label className="checkbox">
+                            <input type="checkbox"/>
+                            I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                    </div>
+
+                    <div className="field">
+                        <div className="control">
+                            <label className="radio">
+                                <input type="radio" name="question"/>
+                                Yes
+                            </label>
+                            <label className="radio">
+                                <input type="radio" name="question"/>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="buttons has-addons">
+                        <button className="button">Yes</button>
+                        <button className="button">Maybe</button>
+                        <button className="button">No</button>
+                    </div>
+
+                    <div className="field is-grouped">
+                        <div className="control">
+                            <button className="button is-link">Submit</button>
+                        </div>
+                        <div className="control">
+                            <button className="button is-link is-light">Cancel</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
-
-
-
-
 
 
         </>
