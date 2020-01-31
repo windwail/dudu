@@ -1,5 +1,9 @@
 import React, {useEffect} from 'react';
 import $ from 'jquery';
+import EditorJs from 'react-editor-js';
+import Editor from "./Editor";
+
+
 
 function App() {
 
@@ -74,73 +78,17 @@ function App() {
             </nav>
 
 
-
-
-
-            <div className="container">
-                <p>Topics</p>
-            </div>
-
-            <div className="container">
-                <div className="card">
-                    <header className="card-header has-background-info ">
-                        <p className="card-header-title has-text-white-ter">
-                            Component
-                        </p>
-                        <a href="#" className="card-header-icon" aria-label="more options">
-      <span className="icon">
-        <i className="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-                        </a>
-                    </header>
-                    <div className="card-content">
-                        <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br/>
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                    <footer className="card-footer">
-                        <a href="#" className="card-footer-item">Save</a>
-                        <a href="#" className="card-footer-item">Edit</a>
-                        <a href="#" className="card-footer-item">Delete</a>
-                    </footer>
+            <div className="container ">
+                <div className="section">
+                    <h3 className="ce-header">Контент вопроса</h3>
+                    <Editor holder="my-editor-1"/>
+                    Здесь кнопки
                 </div>
-
-            </div>
-
-
-
-
-
-            <div className="container">
-                <div className="card">
-                    <header className="card-header has-background-info ">
-                        <p className="card-header-title has-text-white-ter">
-                            Component
-                        </p>
-                        <a href="#" className="card-header-icon" aria-label="more options">
-      <span className="icon">
-        <i className="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-                        </a>
-                    </header>
-                    <div className="card-content">
-                        <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br/>
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                    <footer className="card-footer">
-                        <a href="#" className="card-footer-item">Save</a>
-                        <a href="#" className="card-footer-item">Edit</a>
-                        <a href="#" className="card-footer-item">Delete</a>
-                    </footer>
+                <div className="section">
+                    <h3 className="ce-header">Контент вопроса</h3>
+                    <Editor holder="my-editor-2"/>
+                    Здесь кнопки
                 </div>
-
             </div>
 
 
@@ -148,135 +96,6 @@ function App() {
 
 
 
-            <div className="container">
-                <div className="card">
-                    <header className="card-header has-background-info ">
-                        <p className="card-header-title has-text-white-ter">
-                            Component
-                        </p>
-                        <a href="#" className="card-header-icon" aria-label="more options">
-      <span className="icon">
-        <i className="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-                        </a>
-                    </header>
-                    <div className="card-content">
-                        <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br/>
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                    <footer className="card-footer">
-                        <a href="#" className="card-footer-item">Save</a>
-                        <a href="#" className="card-footer-item">Edit</a>
-                        <a href="#" className="card-footer-item">Delete</a>
-                    </footer>
-                </div>
-
-            </div>
-
-
-
-
-
-
-            <div className="container">
-                <div className="card">
-                    <header className="card-header has-background-info ">
-                        <p className="card-header-title has-text-white-ter">
-                            Component
-                        </p>
-                        <a href="#" className="card-header-icon" aria-label="more options">
-      <span className="icon">
-        <i className="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-                        </a>
-                    </header>
-                    <div className="card-content">
-                        <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br/>
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                    <footer className="card-footer">
-                        <a href="#" className="card-footer-item">Save</a>
-                        <a href="#" className="card-footer-item">Edit</a>
-                        <a href="#" className="card-footer-item">Delete</a>
-                    </footer>
-                </div>
-
-            </div>
-
-
-
-
-
-            <div className="container">
-                <div className="card">
-                    <header className="card-header has-background-info ">
-                        <p className="card-header-title has-text-white-ter">
-                            Component
-                        </p>
-                        <a href="#" className="card-header-icon" aria-label="more options">
-      <span className="icon">
-        <i className="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-                        </a>
-                    </header>
-                    <div className="card-content">
-                        <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br/>
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                    <footer className="card-footer">
-                        <a href="#" className="card-footer-item">Save</a>
-                        <a href="#" className="card-footer-item">Edit</a>
-                        <a href="#" className="card-footer-item">Delete</a>
-                    </footer>
-                </div>
-
-            </div>
-
-
-
-
-
-
-            <div className="container">
-                <div className="card">
-                    <header className="card-header has-background-info ">
-                        <p className="card-header-title has-text-white-ter">
-                            Component
-                        </p>
-                        <a href="#" className="card-header-icon" aria-label="more options">
-      <span className="icon">
-        <i className="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-                        </a>
-                    </header>
-                    <div className="card-content">
-                        <div className="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br/>
-                            <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                    <footer className="card-footer">
-                        <a href="#" className="card-footer-item">Save</a>
-                        <a href="#" className="card-footer-item">Edit</a>
-                        <a href="#" className="card-footer-item">Delete</a>
-                    </footer>
-                </div>
-
-            </div>
 
 
         </>

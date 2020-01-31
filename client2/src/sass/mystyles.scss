@@ -2,6 +2,7 @@
 
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono&display=swap');
 
 //$dark: darken(hsl(171, 100%, 41%), 10%);
 $navbar-box-shadow-size: 0 0 10px ;
@@ -17,6 +18,52 @@ $fullhd: 1344px - 300px  + (2 * $gap) !default
 
 @import 'node_modules/bulma/bulma.sass';
 
+/*
+ * Bulma
+ */
+
 .card {
   margin-bottom: 1.7rem;
+}
+
+.section {
+  padding: 0.5rem 1.5rem;
+}
+
+
+/*
+ * Editor.js
+ */
+
+.ce-paragraph {
+  font-size: 1rem;
+  font-family: 'Fira Mono', monospace;
+  padding: 0 .1rem;
+}
+
+.cdx-list__item {
+  font-size: 1rem;
+  padding:.1rem;
+}
+
+.ce-header {
+  padding: 0.5rem 0;
+  margin: 0;
+  line-height: 1.5em;
+  outline: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.codex-editor {
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  border-style: solid;
+  border-radius: 0.5rem;
+  border-width: 1px;
+}
+
+.codex-editor__redactor {
+  padding-bottom: 3rem !important;
 }
