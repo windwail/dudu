@@ -27,6 +27,7 @@ export default function({username, password, success, error}, dispatch) {
             console.log(data);
             const user = jwt(data.token)
             user.token = data.token;
+            user.roles = user.roles.split(",");
             console.log(user);
             success(user);
         })

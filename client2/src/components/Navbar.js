@@ -43,7 +43,10 @@ function Navbar() {
 
                         <Link to="/" className="navbar-item">Home</Link>
                         <Link to="/courses" className="navbar-item">Courses</Link>
+
+                        {store.user && store.user.roles && store.user.roles.indexOf("admin") >= 0 &&
                         <Link to="/admin" className="navbar-item">Admin</Link>
+                        }
 
                         <div className="navbar-item has-dropdown is-hoverable">
                             <a className="navbar-link">
