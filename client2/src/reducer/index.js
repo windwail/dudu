@@ -7,9 +7,10 @@ export default function(state, action) {
       return reducerOfUpdateArchiveClaims(state, action.payload);
     case types.UPDATE_ACTIVE_CLAIMS:
       return reducerOfUpdateActiveClaims(state, action.payload);
-    case types.DO_LOGIN:
-
-      break;
+    case types.LOGIN:
+      return  {...state, user: action.user};
+    case types.LOGOUT:
+      return  {...state, user: null};
     default:
       return state;
   }

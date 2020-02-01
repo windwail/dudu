@@ -1,8 +1,11 @@
 package ru.dudu.security;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,8 +33,17 @@ public class JwtUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
+
+        List<GrantedAuthority> roles = new ArrayList<>();
+
+        if(user.getRoles() != null) {
+            for (String role : user.getRoles().split(",")) {
+                roles.add(new SimpleGrantedAuthority(role));
+            }
+        }
+
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                new ArrayList<>());
+                roles);
     }
 
     public DAOUser save(UserDTO user) {

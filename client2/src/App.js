@@ -20,7 +20,7 @@ function App() {
         archivedClaims: [],
         activeClaims: [],
 
-        token: null,
+        user: null
 
     };
 

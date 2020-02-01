@@ -2,6 +2,9 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Context} from '../context';
 import auth from "../services/auth";
 
+import jwt from 'jwt-decode';
+import {LOGIN} from "../actions/actionTypes";
+
 function LoginModal({active, close}) {
 
     const {store, dispatch} = useContext(Context);
@@ -18,9 +21,11 @@ function LoginModal({active, close}) {
         auth({
             username,
             password,
-            success: () => {
+            success: (user) => {
+                setPassword("");
                 setSpin(false);
                 close();
+                dispatch({ type: LOGIN, user});
             },
             error: (e) => {
                 setSpin(false);
@@ -52,7 +57,7 @@ function LoginModal({active, close}) {
                                     <div className="field">
                                         <p className="control">
                                             <input className="input" type="email" placeholder="Login"
-                                                   onChange={ (e) => setUsername(e.target.value) }/>
+                                                   onChange={ (e) => setUsername(e.target.value) } value={username}/>
                                         </p>
                                     </div>
                                 </div>
@@ -62,7 +67,8 @@ function LoginModal({active, close}) {
                                     <div className="field">
                                         <p className="control">
                                             <input className="input" type="password" placeholder="Password"
-                                                   onChange={ (e) => setPassword(e.target.value) }/>
+                                                   onChange={ (e) => setPassword(e.target.value) }
+                                                   value={password}/>
                                         </p>
                                     </div>
                                 </div>
@@ -71,8 +77,12 @@ function LoginModal({active, close}) {
                         </div>
                     </section>
                     <footer className="modal-card-foot">
+
+
                         <button className={`button is-success ${ spin  ? 'is-loading' : ''}`}
                         onClick={doLogin}>Login</button>
+
+
                         <button className="button" onClick={close}>Cancel</button>
                     </footer>
                 </div>

@@ -1,14 +1,14 @@
 import jwt from 'jwt-decode';
 
-export default function({username, password, success, error}, dispatch) {
-    fetch(process.env.REACT_APP_API_URL+"/authenticate", {
+export default function({username, password, email, success, error}, dispatch) {
+    fetch(process.env.REACT_APP_API_URL+"/register", {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         headers: {
             'Content-Type': 'application/json',
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({password, username}), // тип данных в body должен соответвовать значению заголовка "Content-Type"
+        body: JSON.stringify({password, username, email}), // тип данных в body должен соответвовать значению заголовка "Content-Type"
     })
         .then(response => {
             // reject not ok response
@@ -25,20 +25,11 @@ export default function({username, password, success, error}, dispatch) {
         .then(data => {
             // you've got your data here
             console.log(data);
-            const user = jwt(data.token)
-            user.token = data.token;
-            console.log(user);
-            success(user);
+            success(data);
         })
         .catch(errorMessage => {
             // finally handle the error
-            let errorJson = JSON.parse(errorMessage);
-            console.log(errorJson);
-
-            switch (errorJson.status) {
-                case 401:
-                    error("Wrong credentials");
-            }
+            error("Cant register this user.");
 
         })
 }

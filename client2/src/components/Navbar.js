@@ -1,12 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import $ from 'jquery';
 import LoginModal from "./LoginModal";
 import {Link} from "react-router-dom";
+import {Context} from "../context";
+import {LOGOUT} from "../actions/actionTypes";
+import Register from "./Register";
 
 
 function Navbar() {
 
+    const {store, dispatch} = useContext(Context);
+
     let [login, showLogin] = useState(false);
+    let [register, showRegister] = useState(false);
 
     let burgerRef = React.createRef();
     let navbarMenuRef = React.createRef();
@@ -14,6 +20,10 @@ function Navbar() {
     const handleClick = () => {
         burgerRef.current.classList.toggle("is-active");
         navbarMenuRef.current.classList.toggle("is-active");
+    }
+
+    const logOut = () => {
+        dispatch({ type: LOGOUT })
     }
 
     return (<>
@@ -34,10 +44,6 @@ function Navbar() {
                         <Link to="/" className="navbar-item">Home</Link>
                         <Link to="/courses" className="navbar-item">Courses</Link>
                         <Link to="/admin" className="navbar-item">Admin</Link>
-
-                        <a className="navbar-item">
-                            Documentation
-                        </a>
 
                         <div className="navbar-item has-dropdown is-hoverable">
                             <a className="navbar-link">
@@ -63,21 +69,40 @@ function Navbar() {
                     </div>
 
                     <div className="navbar-end">
+
+                        {store.user &&
                         <div className="navbar-item">
-                            <div className="buttons">
-                                <a className="button is-primary">
-                                    <strong>Sign up</strong>
-                                </a>
-                                <button className="button is-light" onClick={() => showLogin(true)}>
-                                    Log in
-                                </button>
+
+                            <div className="navbar-item is-hoverable">
+                                <span className="has-text-grey-lighter"> Logged as {store.user.sub} </span>
                             </div>
+
+                            <button className="button is-light" onClick={logOut}>
+                                Log out
+                            </button>
                         </div>
+                        }
+
+                        {!store.user &&
+                        <>
+                            <div className="navbar-item">
+                                <div className="buttons">
+                                    <button className="button is-primary" onClick={() => showRegister(true)}>
+                                        Sign up
+                                    </button>
+                                    <button className="button is-light" onClick={() => showLogin(true)}>
+                                        Log in
+                                    </button>
+                                </div>
+                            </div>
+                        </>
+                        }
                     </div>
                 </div>
             </nav>
 
             <LoginModal active={login} close={() => showLogin(false)}/>
+            <Register active={register} close={() => showRegister(false)}/>
 
         </>
     );

@@ -1,11 +1,14 @@
 package ru.dudu.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "dudu_user")
+@Getter @Setter
 public class DAOUser {
 
     @Id
@@ -17,20 +20,12 @@ public class DAOUser {
     @JsonIgnore
     private String password;
 
-    public String getUsername() {
-        return username;
-    }
+    @Column
+    private String roles; // comma separated roles
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    @Column
+    private String email;
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 }
