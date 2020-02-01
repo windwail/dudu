@@ -1,9 +1,11 @@
 package ru.dudu.security;
 
+import java.sql.SQLException;
 import java.util.Objects;
 
 import io.swagger.annotations.SwaggerDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -34,7 +36,11 @@ public class JwtAuthenticationController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
-        return ResponseEntity.ok(userDetailsService.save(user));
+        try {
+            return ResponseEntity.ok(userDetailsService.save(user));
+        } catch(Exception ex) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists.");
+        }
     }
 
     private void authenticate(String username, String password) throws Exception {

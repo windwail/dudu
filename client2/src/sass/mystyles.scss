@@ -17,6 +17,11 @@ $desktop: 960px - 100px + (2 * $gap) !default
 $widescreen: 1152px - 100px  + (2 * $gap) !default
 $fullhd: 1344px - 100px  + (2 * $gap) !default
 
+
+$notification-padding: 0.5rem 2.5rem 0.5rem 1.5rem;
+
+
+
 @import 'node_modules/bulma/bulma.sass';
 
 /*
@@ -75,4 +80,13 @@ $fullhd: 1344px - 100px  + (2 * $gap) !default
 
 .codex-editor__redactor {
   padding-bottom: 3rem !important;
+}
+
+
+.field:not(:last-child) {
+  margin-bottom: 0
+}
+
+.modal-card-body {
+  padding-top: 0.5rem;
 }

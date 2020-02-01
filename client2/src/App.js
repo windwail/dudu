@@ -3,9 +3,9 @@ import $ from 'jquery';
 import EditorJs from 'react-editor-js';
 import Editor from "./components/Editor";
 import Navbar from "./components/Navbar";
-import Modal from "./components/Modal";
+import LoginModal from "./components/LoginModal";
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import {Index} from './context';
+import {Context} from './context';
 import Main from "./components/Main";
 import Course from "./components/Course";
 import Courses from "./components/Courses";
@@ -19,6 +19,9 @@ function App() {
     const initialState = {
         archivedClaims: [],
         activeClaims: [],
+
+        token: null,
+
     };
 
     const [store, dispatch] = useReducer(reducer, initialState);
@@ -26,7 +29,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Index.Provider value={{dispatch, store}}>
+            <Context.Provider value={{dispatch, store}}>
                 <Navbar/>
 
                 <Switch>
@@ -37,7 +40,7 @@ function App() {
                     <Route exact path='/' component={Main}/>
                 </Switch>
 
-            </Index.Provider>
+            </Context.Provider>
         </BrowserRouter>
     );
 }

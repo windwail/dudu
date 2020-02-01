@@ -1,3 +1,3 @@
 import React from "react";
 
-export const Index = React.createContext();
+export const Context = React.createContext();

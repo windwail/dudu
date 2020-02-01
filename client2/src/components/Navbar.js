@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import $ from 'jquery';
-import Modal from "./Modal";
+import LoginModal from "./LoginModal";
 import {Link} from "react-router-dom";
 
 
@@ -77,7 +77,7 @@ function Navbar() {
                 </div>
             </nav>
 
-            <Modal active={login} close={() => showLogin(false)}/>
+            <LoginModal active={login} close={() => showLogin(false)}/>
 
         </>
     );
