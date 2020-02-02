@@ -3,6 +3,7 @@ package ru.dudu.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -17,8 +18,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import ru.dudu.security.JwtAuthenticationEntryPoint;
 import ru.dudu.security.JwtRequestFilter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(
+//        prePostEnabled = true,
+//        securedEnabled = true,
+//        jsr250Enabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -32,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             // -- swagger ui
             "/authenticate",
             "/register",
-            //"/hello",
+            "/hello",
             "/v2/api-docs",
             "/swagger-resources",
             "/swagger-resources/**",
@@ -65,11 +72,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 // We don't need CSRF for this example
-        httpSecurity.csrf().disable()
+        httpSecurity.cors().and().csrf().disable()
 // dont authenticate this particular request
+
                 .authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                //.antMatchers("/authenticate").permitAll()
+
+                //.antMatchers("/hello2").hasRole("ADMIN")
 // all other requests need to be authenticated
         .anyRequest().authenticated().and().
 // make sure we use stateless session; session won't be used to
@@ -79,4 +88,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 // Add a filter to validate the tokens with every request
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
+
 }

@@ -33,7 +33,7 @@ public class DuduApplication {
                 .build();
     }
 
-    @Bean
+    /*@Bean
     public FilterRegistrationBean corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
@@ -46,6 +46,8 @@ public class DuduApplication {
         bean.setOrder(0);
         return bean;
     }
+
+     */
 
 
 }
